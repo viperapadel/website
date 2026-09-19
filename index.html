@@ -50,9 +50,55 @@
   footer a:focus-visible{outline:2px solid var(--ochre);outline-offset:4px}
   @media (prefers-reduced-motion:no-preference){
     main > *{opacity:0;animation:in .9s cubic-bezier(.2,.7,.2,1) forwards}
-    .word{animation-delay:.12s} .tag{animation-delay:.2s} .line{animation-delay:.42s}
+    .word{animation-delay:.12s} .tag{animation-delay:.2s} 
     @keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
   }
+
+  body{display:block}
+  main{min-height:100svh}
+  .idea{margin-top:calc(var(--w) * .42);display:flex;flex-direction:column;align-items:center;gap:.8rem;max-width:36rem}
+  .idea p{text-transform:uppercase;letter-spacing:.18em;line-height:1.9}
+  .idea .soft{font-size:clamp(.62rem,1.5vw,.74rem);color:rgba(237,233,224,.72);font-weight:400}
+  .idea .both{font-size:clamp(.62rem,1.45vw,.72rem);font-weight:700;letter-spacing:.2em;color:var(--bone)}
+  .idea .hard{font-size:clamp(1rem,2.6vw,1.4rem);font-weight:700;letter-spacing:.2em;color:var(--bone)}
+  .cta{margin-top:2.6rem;display:inline-block;padding:1.05rem 2.4rem;border:1px solid var(--ochre);background:var(--ochre);color:var(--bone);
+    text-decoration:none;font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;transition:background .2s,color .2s}
+  .cta:hover{background:#7A3512;border-color:#7A3512}
+  .cta:focus-visible,.send:focus-visible{outline:2px solid var(--bone);outline-offset:4px}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .apply:not([hidden]){animation:rise .6s cubic-bezier(.2,.7,.2,1)}
+  .apply{max-width:520px;margin:0 auto;padding:12vh 0 4vh}
+  .apply h2{font-size:clamp(1rem,2.6vw,1.4rem);font-weight:700;letter-spacing:.2em;text-transform:uppercase;text-align:center}
+  .apply .sub{margin-top:.9rem;text-align:center;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,233,224,.6)}
+  form{margin-top:3.2rem;display:flex;flex-direction:column;gap:2.1rem}
+  label,.q{display:block;font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(237,233,224,.72)}
+  label em,.q em{font-style:normal;font-weight:400;color:rgba(237,233,224,.42)}
+  input,textarea{display:block;width:100%;margin-top:.55rem;background:transparent;border:0;border-bottom:1px solid rgba(237,233,224,.28);
+    color:var(--bone);font:400 .9rem/1.5 var(--mono);padding:.55rem 0;border-radius:0;outline:none;transition:border-color .2s}
+  input::placeholder,textarea::placeholder{color:rgba(237,233,224,.3)}
+  input:focus,textarea:focus{border-color:var(--bone)}
+  textarea{resize:vertical;min-height:5.5rem}
+  .chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.8rem}
+  .chips label{display:inline-block;color:var(--bone);font-weight:400;letter-spacing:0}
+  .chips input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+  .chips span{display:inline-block;padding:.7rem 1rem;border:1px solid rgba(237,233,224,.3);font-size:.66rem;letter-spacing:.14em;
+    text-transform:uppercase;cursor:pointer;transition:all .2s}
+  .chips input:checked + span{background:var(--bone);color:var(--basalt);border-color:var(--bone)}
+  .chips input:focus-visible + span{outline:2px solid var(--ochre);outline-offset:3px}
+  .send{margin-top:.6rem;width:100%;padding:1.15rem;background:var(--ochre);color:var(--bone);transition:background .2s;border:0;cursor:pointer;
+    font:700 .72rem var(--mono);letter-spacing:.3em;text-transform:uppercase}
+  .send:hover{background:#7A3512}
+  .fine{text-align:center;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,233,224,.5)}
+  .done{display:none;text-align:center;padding:6vh 0}
+  .done p{font-size:clamp(1rem,2.6vw,1.4rem);font-weight:700;letter-spacing:.2em;text-transform:uppercase;line-height:1.8}
+  .done small{display:block;margin-top:1rem;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,233,224,.6)}
+  [hidden]{display:none!important}
+  .err{margin-top:1.2rem;text-align:center;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bone);line-height:1.8}
+  .tried :invalid{border-color:var(--ochre)}
+  .tried .chips:has(:invalid) span{border-color:var(--ochre)}
+  .send:disabled{opacity:.6;cursor:default}
+  .sent form,.sent .fine,.sent .err{display:none!important} .sent .done{display:block}
+  .idea{animation-delay:.42s} .cta{animation-delay:.55s}
 </style>
 </head>
 <body>
@@ -390,12 +436,83 @@ l281 -145 4752 -13 4753 -13 206 110 205 110 100 361 99 360 -96 514 c-113
 -238 155 -64 342 c-35 188 -72 1212 -83 2276 l-19 1934 85 266 85 265 272 113
 271 112 3297 -13 c1813 -7 3402 -8 3530 -3 l232 10 293 292 292 293 0 361 c0
 486 -217 975 -551 1237 l-276 217 -4611 -2 -4612 -3 -330 -162z"/></g></svg>
-  <p class="line">We don&rsquo;t ask your level.</p>
+  <div class="idea">
+    <p class="both">We don&rsquo;t ask your level.</p>
+    <p class="both">We play, and we both find out.</p>
+  </div>
+  <a class="cta" href="#apply">Apply to play</a>
 </main>
+<section class="apply" id="apply" hidden>
+  <h2>Apply to play</h2>
+  <p class="sub">Ten questions. Two minutes.</p>
+  <form id="f" novalidate>
+    <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+    <div><label for="n">Name</label><input id="n" name="name" required autocomplete="name" placeholder="Your name"></div>
+    <div><label for="w">WhatsApp number</label><input id="w" name="whatsapp" type="tel" required inputmode="tel" placeholder="+965"></div>
+    <div><label for="i">Instagram <em>(optional)</em></label><input id="i" name="instagram" placeholder="@"></div>
+    <div><span class="q">Which side do you usually play?</span>
+      <div class="chips">
+        <label><input type="radio" name="side" value="Left" required><span>Left</span></label>
+        <label><input type="radio" name="side" value="Right"><span>Right</span></label>
+        <label><input type="radio" name="side" value="Both"><span>Both</span></label>
+      </div></div>
+    <div><span class="q">How often do you play?</span>
+      <div class="chips">
+        <label><input type="radio" name="often" value="Once a week" required><span>Once a week</span></label>
+        <label><input type="radio" name="often" value="2-3 times a week"><span>2&ndash;3 times a week</span></label>
+        <label><input type="radio" name="often" value="4+ times a week"><span>4+ times a week</span></label>
+      </div></div>
+    <div><label for="c">Where do you usually play?</label><input id="c" name="usual_court" required placeholder="Club or court name"></div>
+    <div><span class="q">Do you have your own racket?</span>
+      <div class="chips">
+        <label><input type="radio" name="racket" value="Yes" required><span>Yes</span></label>
+        <label><input type="radio" name="racket" value="No"><span>No</span></label>
+      </div></div>
+    <div><span class="q">Do you play Americanos or tournaments?</span>
+      <div class="chips">
+        <label><input type="radio" name="americanos" value="Yes" required><span>Yes</span></label>
+        <label><input type="radio" name="americanos" value="Sometimes"><span>Sometimes</span></label>
+        <label><input type="radio" name="americanos" value="Not yet"><span>Not yet</span></label>
+      </div></div>
+    <div><label for="r">Who told you about VIPERA? <em>(optional)</em></label><input id="r" name="referral" placeholder="A name, or Instagram"></div>
+    <div><label for="g">What makes a good game for you?</label><textarea id="g" name="good_game" required placeholder="In your own words"></textarea></div>
+    <button class="send" type="submit">Send application</button>
+  </form>
+  <p class="fine" style="margin-top:1.6rem">We reply on WhatsApp.</p>
+  <p class="err" id="err" role="alert" hidden>Something went wrong. Please try again, or email hello@viperapadel.com.</p>
+  <div class="done" aria-live="polite"><p>Received.<br>See you on court.</p><small>We will message you on WhatsApp.</small></div>
+</section>
 <footer>
   <a href="mailto:hello@viperapadel.com">hello@viperapadel.com</a>
   <a href="https://www.instagram.com/viperapadel/" rel="noopener">@viperapadel</a>
   <span>Kuwait</span>
 </footer>
+<script>
+(function(){
+  var sec=document.getElementById('apply');
+  function openForm(smooth){ sec.hidden=false; requestAnimationFrame(function(){ sec.scrollIntoView({behavior:smooth?'smooth':'auto',block:'start'}); }); }
+  document.querySelector('.cta').addEventListener('click',function(e){ e.preventDefault(); openForm(true); history.replaceState(null,'','#apply'); });
+  if(location.hash==='#apply') openForm(false);
+  var f=document.getElementById('f'), box=document.getElementById('apply'), err=document.getElementById('err'), btn=f.querySelector('.send');
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); err.hidden=true;
+    if(!f.checkValidity()){
+      var bad=f.querySelector(':invalid'); f.classList.add('tried');
+      if(bad){ (bad.closest('div')||bad).scrollIntoView({behavior:'smooth',block:'center'}); if(bad.type!=='radio') bad.focus(); }
+      return;
+    }
+    if(f._honey.value){ box.classList.add('sent'); return; }
+    var data={}; new FormData(f).forEach(function(v,k){ if(k!=='_honey') data[k]=v; });
+    data._subject='VIPERA application: '+(data.name||'');
+    data._template='table'; data._captcha='false';
+    btn.disabled=true; btn.textContent='Sending\u2026';
+    fetch('https://formsubmit.co/ajax/hello@viperapadel.com',{method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+    .then(function(r){ return r.json().then(function(j){ if(!r.ok||String(j.success)==='false') throw 0; }); })
+    .then(function(){ box.classList.add('sent'); box.scrollIntoView({behavior:'smooth',block:'start'}); })
+    .catch(function(){ err.hidden=false; btn.disabled=false; btn.textContent='Send application'; });
+  });
+})();
+</script>
 </body>
 </html>
