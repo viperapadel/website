@@ -75,6 +75,8 @@
   label em,.q em{font-style:normal;font-weight:400;color:rgba(237,233,224,.42)}
   input,textarea{display:block;width:100%;margin-top:.55rem;background:transparent;border:0;border-bottom:1px solid rgba(237,233,224,.28);
     color:var(--bone);font:400 .9rem/1.5 var(--mono);padding:.55rem 0;border-radius:0;outline:none;transition:border-color .2s}
+  input[type=date]{color-scheme:dark;min-height:2.7em;-webkit-appearance:none;appearance:none;text-align:left}
+  input[type=date]::-webkit-date-and-time-value{text-align:left}
   input::placeholder,textarea::placeholder{color:rgba(237,233,224,.3)}
   input:focus,textarea:focus{border-color:var(--bone)}
   textarea{resize:vertical;min-height:5.5rem}
@@ -444,10 +446,11 @@ l281 -145 4752 -13 4753 -13 206 110 205 110 100 361 99 360 -96 514 c-113
 </main>
 <section class="apply" id="apply" hidden>
   <h2>Apply to play</h2>
-  <p class="sub">Ten questions. Two minutes.</p>
+  <p class="sub">Eleven questions. Two minutes.</p>
   <form id="f" novalidate>
     <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
     <div><label for="n">Name</label><input id="n" name="name" required autocomplete="name" placeholder="Your name"></div>
+    <div><label for="dob">Date of birth</label><input id="dob" name="dob" type="date" required min="1940-01-01" max="2020-12-31"></div>
     <div><label for="w">WhatsApp number</label><input id="w" name="whatsapp" type="tel" required inputmode="tel" placeholder="+965"></div>
     <div><label for="i">Instagram <em>(optional)</em></label><input id="i" name="instagram" placeholder="@"></div>
     <div><span class="q">Which side do you usually play?</span>
